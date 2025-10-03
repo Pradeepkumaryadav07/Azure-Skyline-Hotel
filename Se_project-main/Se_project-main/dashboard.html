@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Azure Skyline Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .welcome-message h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .rewards-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .rewards-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .rewards-points {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .bookings-section h2, .rewards-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .booking-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .booking-id {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .booking-status {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .booking-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .detail-group h4 {
+            margin: 0 0 0.5rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .detail-group p {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .no-bookings {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .btn-logout {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-logout:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 class="logo"><a href="index.html">Azure Skyline Hotel</a></h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="#" id="logoutBtn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <div class="welcome-message">
+                <h1>Welcome back, <span id="userName">Guest</span>!</h1>
+                <p>Here's your booking history and rewards</p>
+            </div>
+        </div>
+        
+        <div class="rewards-card">
+            <div class="rewards-header">
+                <div>
+                    <h3>Your Rewards</h3>
+                    <p>Earn points with every booking</p>
+                </div>
+                <div class="rewards-points" id="rewardsPoints">0</div>
+            </div>
+            <div class="progress" style="height: 8px; background: rgba(255,255,255,0.3); border-radius: 4px; margin-top: 1rem;">
+                <div id="rewardsProgress" class="progress-bar" style="height: 100%; width: 30%; background: white; border-radius: 4px;"></div>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;"><span id="pointsToNext">200</span> points to next reward</p>
+        </div>
+        
+        <section class="bookings-section">
+            <h2>Your Bookings</h2>
+            <div id="bookingsList">
+                <!-- Bookings will be dynamically inserted here -->
+                <div class="no-bookings">
+                    <i class="fas fa-calendar-alt" style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                    <p>You don't have any bookings yet.</p>
+                    <a href="rooms.html" class="btn btn-primary" style="margin-top: 1rem;">Book a Room</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

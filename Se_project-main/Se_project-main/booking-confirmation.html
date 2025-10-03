@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation - Azure Skyline Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        .confirmation-container {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .confirmation-icon {
+            font-size: 5rem;
+            color: #4CAF50;
+            margin-bottom: 2rem;
+        }
+        
+        .confirmation-details {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            text-align: left;
+        }
+        
+        .detail-row {
+            display: flex;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            width: 150px;
+            color: #555;
+        }
+        
+        .detail-value {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 class="logo"><a href="index.html">Azure Skyline Hotel</a></h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="confirmation-container">
+        <div class="confirmation-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Booking Confirmed!</h1>
+        <p class="lead">Thank you for choosing Azure Skyline Hotel. Your booking has been confirmed.</p>
+        
+        <div class="confirmation-details">
+            <h2>Booking Details</h2>
+            <div class="detail-row">
+                <div class="detail-label">Booking ID:</div>
+                <div class="detail-value" id="bookingId">#AZURE-<span id="randomId"></span></div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Name:</div>
+                <div class="detail-value" id="guestName">-</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Room Type:</div>
+                <div class="detail-value" id="roomType">-</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Check-in:</div>
+                <div class="detail-value" id="checkIn">-</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Check-out:</div>
+                <div class="detail-value" id="checkOut">-</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Total Amount:</div>
+                <div class="detail-value" id="totalAmount">-</div>
+            </div>
+        </div>
+        
+        <div class="mt-3">
+            <p>A confirmation email has been sent to your email address.</p>
+            <a href="index.html" class="btn btn-primary mt-2">Back to Home</a>
+        </div>
+    </section>
+
+    <footer id="main-footer" class="py-2">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Azure Skyline Hotel</h3>
+                    <p>Experience luxury and comfort in the heart of the city. Your perfect stay begins here.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue, Boston, MA 02108</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@azureskylinehotel.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Azure Skyline Hotel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get booking details from session storage
+        const bookingDetails = JSON.parse(sessionStorage.getItem('bookingDetails')) || {
+            name: 'Guest',
+            roomType: 'Deluxe Room',
+            checkIn: '-',
+            checkOut: '-',
+            amount: '$0',
+            bookingId: 'AZURE-' + Math.random().toString(36).substr(2, 8).toUpperCase()
+        };
+        
+        // Set the booking ID
+        document.getElementById('randomId').textContent = bookingDetails.bookingId;
+        
+        // Format dates if they exist
+        const formatDate = (dateString) => {
+            if (!dateString || dateString === '-') return '-';
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        };
+        
+        // Update the confirmation page with booking details
+        document.getElementById('guestName').textContent = bookingDetails.name || 'Guest';
+        document.getElementById('roomType').textContent = bookingDetails.roomType || 'Deluxe Room';
+        document.getElementById('checkIn').textContent = formatDate(bookingDetails.checkIn);
+        document.getElementById('checkOut').textContent = formatDate(bookingDetails.checkOut);
+        document.getElementById('totalAmount').textContent = bookingDetails.amount || '$0';
+    </script>
+</body>
+</html>

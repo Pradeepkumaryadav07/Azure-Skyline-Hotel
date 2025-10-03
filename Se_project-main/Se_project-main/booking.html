@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay - Azure Skyline Hotel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <h1 class="logo"><a href="index.html">Azure Skyline Hotel</a></h1>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="booking-form" class="py-3">
+        <div class="container">
+            <h2 class="section-title">Book Your <span class="text-primary">Stay</span></h2>
+            <div class="form-container">
+                <form id="bookingForm">
+                    <input type="hidden" id="roomType" name="roomType" value="">
+                    <input type="hidden" id="roomPrice" name="roomPrice" value="">
+                    
+                    <div class="form-group">
+                        <label for="checkIn">Check-in Date</label>
+                        <input type="date" id="checkIn" name="checkIn" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="checkOut">Check-out Date</label>
+                        <input type="date" id="checkOut" name="checkOut" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="adults">Adults</label>
+                        <select id="adults" name="adults" required>
+                            <option value="1">1 Adult</option>
+                            <option value="2" selected>2 Adults</option>
+                            <option value="3">3 Adults</option>
+                            <option value="4">4 Adults</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="children">Children (0-12 years)</label>
+                        <select id="children" name="children">
+                            <option value="0">0 Children</option>
+                            <option value="1">1 Child</option>
+                            <option value="2">2 Children</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests (Optional)</label>
+                        <textarea id="specialRequests" name="specialRequests" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="price-summary">
+                        <h3>Booking Summary</h3>
+                        <div class="summary-item">
+                            <span>Room Type:</span>
+                            <span id="summaryRoomType">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Duration:</span>
+                            <span id="summaryNights">0</span> nights
+                        </div>
+                        <div class="summary-item total">
+                            <span>Total Amount:</span>
+                            <span id="summaryTotal">$0</span>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="rzp-button" class="btn btn-primary">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer" class="py-2">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Azure Skyline Hotel</h3>
+                    <p>Experience luxury and comfort in the heart of the city. Your perfect stay begins here.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="rooms.html">Rooms</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Luxury Avenue, Boston, MA 02108</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@azureskylinehotel.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Azure Skyline Hotel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Razorpay Payment Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>

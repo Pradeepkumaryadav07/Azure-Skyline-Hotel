@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Azure Skyline Hotel for reservations, inquiries, or special requests. Our team is available 24/7 to assist with your luxury accommodation needs.">
+    <meta name="keywords" content="contact hotel, hotel reservations, Boston hotel contact, luxury hotel booking, hotel inquiry">
+    <meta name="author" content="Azure Skyline Hotel">
+    <meta property="og:title" content="Contact Azure Skyline Hotel | Luxury Accommodation">
+    <meta property="og:description" content="Get in touch with Azure Skyline Hotel. Our team is ready to assist with your luxury accommodation needs and special requests.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <title>Contact Azure Skyline Hotel | Luxury Accommodation</title>
+</head>
+<body>
+    <header>
+       
+        <nav id="navbar">
+            <div class="container">
+                <h1 class = "logo"> <a href = "index.html">Azure Skyline Hotel</a></h1>
+                <ul> 
+                    <li><a href ="index.html">Home </a></li>
+                    <li><a  href ="about.html">About</a></li>
+                </ul>
+                </div>
+            </nav>
+
+    </header>
+   <section id="contact-form" class="py-3">
+    <div class="container">
+        <div class="form-container">
+            <div class="form-content">
+                <h1 class="l-heading"><span class="text-primary">Get In</span> Touch</h1>
+                <p>We'd love to hear from you! Whether you have a question about our services, need assistance with a reservation, or want to provide feedback, our team is here to help.</p>
+                
+                <form id="contactForm" onsubmit="submitForm(event)">
+                    <div id="form-messages" class="form-message"></div>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" name="phone" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select name="subject" id="subject">
+                            <option value="reservation">Reservation Inquiry</option>
+                            <option value="event">Event Planning</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea name="message" id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
+                        <span class="btn-text">Send Message</span>
+                        <span class="spinner" style="display: none;">Sending...</span>
+                    </button>
+                </form>
+            </div>
+            <div class="map-container">
+                <div class="map">
+                    <iframe
+                        class="map-iframe"
+                        frameborder="0"
+                        style="border:0"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2948.666321336615!2d-71.06549392404254!3d42.35423297118792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3708d4effd7c5%3A0x7bb1b9e3d03a37c2!2s50%20Main%20St%2C%20Boston%2C%20MA%2002129!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                    <div class="map-overlay">
+                        <a href="https://www.google.com/maps/dir//50+Main+St,+Boston,+MA+02129/@42.3542326,-71.0654939,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x89e3708d4effd7c5:0x7bb1b9e3d03a37c2!2m2!1d-71.0633052!2d42.3542287" 
+                           target="_blank" 
+                           class="btn-map-directions">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </section>
+   <section id="contact-info" class="py-3">
+    <div class="container">
+        <div class="contact-boxes">
+            <div class="contact-box">
+                <div class="icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Our Location</h3>
+                <p>123 Luxury Avenue<br>Boston, MA 02108<br>United States</p>
+                <a href="#" class="btn-link">Get Directions <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="contact-box">
+                <div class="icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>Phone & Email</h3>
+                <p>Reservations: +1 (617) 555-0100<br>
+                Front Desk: +1 (617) 555-0101<br>
+                Email: info@hotelkp.com</p>
+                <a href="tel:+16175550100" class="btn-link">Call Now <i class="fas fa-phone"></i></a>
+            </div>
+            
+            <div class="contact-box">
+                <div class="icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <h3>Opening Hours</h3>
+                <p>Front Desk: 24/7<br>
+                Restaurant: 6:00 AM - 11:00 PM<br>
+                Spa: 8:00 AM - 10:00 PM</p>
+                <a href="#" class="btn-link">View All Services <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="contact-box">
+                <div class="icon">
+                    <i class="fas fa-concierge-bell"></i>
+                </div>
+                <h3>Concierge Services</h3>
+                <p>Need assistance with reservations, tours, or local recommendations? Our concierge team is here to help make your stay exceptional.</p>
+                <a href="mailto:concierge@hotelkp.com" class="btn-link">Email Concierge <i class="fas fa-envelope"></i></a>
+            </div>
+    <footer id="main-footer">
+        <p>Azure Skyline Hotel &copy;2024,All Rights Reserved</p>
+    </footer>
+    
+    <script>
+        function submitForm(e) {
+            e.preventDefault();
+            
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const spinner = submitBtn.querySelector('.spinner');
+            const messages = document.getElementById('form-messages');
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            spinner.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            // Clear previous messages
+            messages.innerHTML = '';
+            messages.className = 'form-message';
+            
+            // Submit form via AJAX
+            fetch('process.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    messages.innerHTML = `<div class="alert success">${data.message}</div>`;
+                    messages.className = 'form-message success';
+                    form.reset();
+                } else {
+                    // Show error messages
+                    let errorHtml = '<div class="alert error">';
+                    if (data.errors) {
+                        errorHtml += '<ul>';
+                        data.errors.forEach(error => {
+                            errorHtml += `<li>${error}</li>`;
+                        });
+                        errorHtml += '</ul>';
+                    } else if (data.message) {
+                        errorHtml += data.message;
+                    } else {
+                        errorHtml += 'An error occurred. Please try again.';
+                    }
+                    errorHtml += '</div>';
+                    messages.innerHTML = errorHtml;
+                    messages.className = 'form-message error';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                messages.innerHTML = '<div class="alert error">An error occurred. Please try again later.</div>';
+                messages.className = 'form-message error';
+            })
+            .finally(() => {
+                // Reset button state
+                btnText.style.display = 'inline-block';
+                spinner.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Scroll to messages
+                messages.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+    </script>
+</body>
+</html>
